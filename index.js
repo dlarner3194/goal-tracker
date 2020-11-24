@@ -2,8 +2,6 @@
 function move() {
 	const elem = document.getElementById("progress-bar");
 	const inputVal = document.getElementById("goal").value;
-    localStorage.setItem('myCat', 'TK');
-    console.log(localStorage.getItem('myCat'));
 	let width = 1;
 	frame();
 	function frame() {
@@ -18,6 +16,17 @@ function move() {
 	}
 }
 
+function getGoal() {
+    const elem = document.getElementById("monthly-goal");
+    if (new Date().getDate() === 1) {
+        console.log("in the if");
+        const promptForGoal = prompt("What is your goal for the month?");
+        elem.innerHTML = "Goal of the month: " + promptForGoal;
+    } else {
+        elem.innerHTML = "Goal of the month: Squats";
+    }
+}   
+getGoal();
 function getRemainingDays() {
   let date = new Date();
   let time = new Date(date.getTime());
