@@ -2,7 +2,8 @@
 function move() {
 	const elem = document.getElementById("progress-bar");
 	const inputVal = document.getElementById("goal").value;
-	console.log("inputVal: ", inputVal);
+    localStorage.setItem('myCat', 'TK');
+    console.log(localStorage.getItem('myCat'));
 	let width = 1;
 	frame();
 	function frame() {
@@ -16,3 +17,14 @@ function move() {
 	  }
 	}
 }
+
+function getRemainingDays() {
+  let date = new Date();
+  let time = new Date(date.getTime());
+  time.setMonth(date.getMonth() + 1);
+  time.setDate(0);
+  let days = time.getDate() > date.getDate() ? time.getDate() - date.getDate() : 0;
+  let elem = document.getElementById("days-left");
+  elem.innerHTML = "Days left in month: " + days;
+}
+getRemainingDays();
