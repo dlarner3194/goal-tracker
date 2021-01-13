@@ -17,7 +17,13 @@
 			<header id="monthly-goal"></header>
 			<label for="squats">How many did you do today?</label>
 			
-			<input type="number" name="squats" id="goal"></input>
+			<input
+				type="number"
+				name="squats"
+				id="goal"
+				min="0"
+				onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57"
+			></input>
 			<button onclick="move()">Submit</button>
 
             <section id="days-left">Days left in month: </section>
